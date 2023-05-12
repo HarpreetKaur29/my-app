@@ -2,6 +2,7 @@ import React, { useState } from 'react'
 import { useTable } from 'react-table';
 import UserData from '../Data/data.json'
 import Modal from '../Components/Modal';
+import { Link } from 'react-router-dom';
 
 
  const TableScreen =()=> {
@@ -59,8 +60,11 @@ import Modal from '../Components/Modal';
  
    return ( <>
    {selectedUser && <Modal isModalOpen={isModalOpen} setIsModalOpen={setIsModalOpen} selectedUser={selectedUser} userData={users} setUsers={setUsers} />}
-   <div className='flex justify-center flex-col gap-4 pt-4'>
+   <div className='flex justify-center flex-col gap-4 pt-4 p-6'>
+    <div className="header flex justify-between">
     <p className='text-3xl font-bold'>Users Data Table</p>
+<Link to='/chart'className='px-5 py-2 rounded-md bg-blue-600 text-white font-bold'>Go to Charts</Link>
+    </div>
      <table {...getTableProps()} style={{ border: 'solid 1px blue' }}>
        <thead>
          {headerGroups.map(headerGroup => (
